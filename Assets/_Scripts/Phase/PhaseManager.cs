@@ -4,6 +4,7 @@ using TMPro;
 
 public class PhaseManager : MonoBehaviour
 {
+    [SerializeField] Phases phase;
     [SerializeField] GameObject phaseStart;
     [SerializeField] TextMeshProUGUI startInfos;
     [Space]
@@ -35,14 +36,15 @@ public class PhaseManager : MonoBehaviour
         startInfos.text = "Quantidade de itens:" + itensCount + "\nTempo: " + duration;
     }
 
-    public void EndPhase(bool result)
+    public void EndPhase(bool success)
     {
-        if (result)
+        if (success)
         {
             timer.StopTimer();
-            success.SetActive(true);
+            this.success.SetActive(true);
             string timeLeft = timer.GetTimeLeft();
             successInfos.text = "Tempo Restante: " + timeLeft;
+            SavePhaseInfo();
         }
         else
         {
@@ -52,5 +54,28 @@ public class PhaseManager : MonoBehaviour
         }
     }
 
+    //Detecta qual a fase atual e salva no PlayerPref
+    private void SavePhaseInfo()
+    {
+        switch (phase)
+        {
+            case Phases.Phase1:
+                if(PlayerPrefs.GetInt("PhasesCompleted") < 1) PlayerPrefs.SetInt("PhasesCompleted", 1);
+                break;
+            case Phases.Phase2:
+                if (PlayerPrefs.GetInt("PhasesCompleted") < 2) PlayerPrefs.SetInt("PhasesCompleted", 2);
+                break;
+            case Phases.Phase3:
+                if (PlayerPrefs.GetInt("PhasesCompleted") < 3) PlayerPrefs.SetInt("PhasesCompleted", 3);
+                break;
+        }
+    }
 
+
+}
+
+enum Phases{
+    Phase1,
+    Phase2,
+    Phase3
 }
