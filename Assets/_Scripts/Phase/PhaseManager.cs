@@ -23,11 +23,15 @@ public class PhaseManager : MonoBehaviour
         counter = GetComponent<Counter>();
 
         phaseStart.SetActive(true);
+
+        //Desativa ambas interfaces por segurança
         success.SetActive(false);
         fail.SetActive(false);
+
         SetPhaseInfos();
     }
 
+    //Mostra as informações da fase na tela de inicio
     private void SetPhaseInfos()
     {
         int itensCount = counter.GetTotalItensCount();
@@ -36,6 +40,7 @@ public class PhaseManager : MonoBehaviour
         startInfos.text = "Quantidade de itens:" + itensCount + "\nTempo: " + duration;
     }
 
+    //Ao coletar todos os itens ou o tempo acabar, retorna a tela de sucesso/falha
     public void EndPhase(bool success)
     {
         if (success)

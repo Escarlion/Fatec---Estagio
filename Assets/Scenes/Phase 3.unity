@@ -1680,7 +1680,7 @@ GameObject:
   - component: {fileID: 1056396065}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: Canvas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1831,6 +1831,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Map
+  transitionOut: {fileID: 3205825925666507746, guid: 62a32e8f3db74d04eb065c2f8a59cd71, type: 3}
 --- !u!1 &1397460339
 GameObject:
   m_ObjectHideFlags: 0

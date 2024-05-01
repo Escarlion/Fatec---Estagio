@@ -18,11 +18,12 @@ public class ClickableItem : MonoBehaviour
     [SerializeField] AnimationClip disapearAnimation;
     [SerializeField] Sprite unhideSprite, collectedSprite;
 
-
     public void OnClick()
     {
         if (hidden) Unhide();
         else if (collectable) Collect();
+
+        AudioController.current.PlaySfx(AudioController.current.itemSfx);
     }
 
     private void Unhide()

@@ -7,9 +7,12 @@ public class MapManager : MonoBehaviour
 {
     [SerializeField] List<GameObject> phases = new List<GameObject>();
 
+    [SerializeField] GameObject introTransition;
+
     void Start()
     {
         CheckPhasesStatus();
+        Destroy(Instantiate(introTransition, this.transform), 1.5f);
     }
 
     private void Update()
