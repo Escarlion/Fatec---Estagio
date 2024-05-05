@@ -33,7 +33,7 @@ public class MapManager : MonoBehaviour
         int phasesCompleted = PlayerPrefs.GetInt("PhasesCompleted"); ///Gerado na classe PhaseManager
         Debug.Log("valor na player prefs: "+phasesCompleted);
 
-        for (int i = 0; i <= phasesCompleted; i++) //Sempre vai manter pelo menos a 1a fase habilitada
+        for (int i = 0; i < phasesCompleted; i++) //Sempre vai manter pelo menos a 1a fase habilitada
         {
             phases[i].GetComponent<Button>().interactable = true;
         }         

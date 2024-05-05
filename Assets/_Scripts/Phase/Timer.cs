@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public TextMeshProUGUI timerText;
+    public Text timerText;
     [SerializeField] private float duration = 60f; // Duração do timer em segundos
     private bool isRunning = false;
     float timeStamp;

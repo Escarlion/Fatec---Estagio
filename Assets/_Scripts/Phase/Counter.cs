@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.UI;
 
 public class Counter : MonoBehaviour
 {
     private int totalItens;
     private int currentItens;
-    [SerializeField] private TextMeshProUGUI counterText;
+    [SerializeField] private Text counterText;
 
     private void Start()
     {

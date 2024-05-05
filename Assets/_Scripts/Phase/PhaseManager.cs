@@ -6,13 +6,15 @@ public class PhaseManager : MonoBehaviour
 {
     [SerializeField] Phases phase;
     [SerializeField] GameObject phaseStart;
-    [SerializeField] TextMeshProUGUI startInfos;
+    [SerializeField] Text startInfos;
     [Space]
     [SerializeField] GameObject success;
-    [SerializeField] TextMeshProUGUI successInfos;
+    [SerializeField] Text successInfos;
     [Space]
     [SerializeField] GameObject fail;
-    [SerializeField] TextMeshProUGUI failInfos;
+    [SerializeField] Text failInfos;
+    [Space]
+    [SerializeField] [TextArea] string informativeText;
 
     Timer timer;
     Counter counter;
@@ -37,7 +39,7 @@ public class PhaseManager : MonoBehaviour
         int itensCount = counter.GetTotalItensCount();
         float duration = timer.GetDuration();
 
-        startInfos.text = "Quantidade de itens:" + itensCount + "\nTempo: " + duration;
+        startInfos.text = "Quantidade de itens: " + itensCount + "\nTempo: " + duration;
     }
 
     //Ao coletar todos os itens ou o tempo acabar, retorna a tela de sucesso/falha
@@ -48,7 +50,7 @@ public class PhaseManager : MonoBehaviour
             timer.StopTimer();
             this.success.SetActive(true);
             string timeLeft = timer.GetTimeLeft();
-            successInfos.text = "Tempo Restante: " + timeLeft;
+            successInfos.text = "Tempo Restante: " + timeLeft + "\n\n"+ informativeText;
             SavePhaseInfo();
         }
         else
