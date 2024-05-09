@@ -50,7 +50,7 @@ public class PhaseManager : MonoBehaviour
             timer.StopTimer();
             this.success.SetActive(true);
             string timeLeft = timer.GetTimeLeft();
-            successInfos.text = "Tempo Restante: " + timeLeft + "\n\n"+ informativeText;
+            successInfos.text = "Tempo Restante: " + timeLeft + "\n"+ informativeText;
             SavePhaseInfo();
         }
         else
